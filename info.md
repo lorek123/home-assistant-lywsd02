@@ -24,12 +24,11 @@ See [./services.yaml](./custom_components/lywsd02/services.yaml) for details.
 
 ## Setting Unit
 
-You can also set tempaerature unit (F/C), TZ offset, as well as clock mode (12/24) via optional parameters:
+You can also set the temperature unit (F/C) and TZ offset via optional parameters:
 ```yaml
 service: lywsd02.set_time
 data:
   mac: A1:B2:C3:D4:E5:F6
-  clock_mode: 24
   tz_offset: 0
   temp_mode: 'C'
 ```
