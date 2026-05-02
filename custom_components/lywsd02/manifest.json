@@ -12,5 +12,5 @@
         "bleak-retry-connector>=3.0.0"
     ],
     "config_flow": true,
-    "version": "0.5.0"
+    "version": "0.5.1"
 }

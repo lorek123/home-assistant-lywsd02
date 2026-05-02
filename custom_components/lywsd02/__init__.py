@@ -42,6 +42,15 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    if "mac" not in entry.data:
+        # Entry created by v0.4.0 which stored no device data — must be re-added.
+        _LOGGER.error(
+            "Config entry '%s' has no device config. "
+            "Please remove it and add the integration again via the UI.",
+            entry.title,
+        )
+        return False
+
     hass.data.setdefault(DOMAIN, {})[entry.data["mac"]] = entry
 
     if not hass.services.has_service(DOMAIN, "set_time"):
