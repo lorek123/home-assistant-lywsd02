@@ -4,7 +4,7 @@
     "codeowners": [
         "ashald"
     ],
-    "dependencies": [],
+    "dependencies": ["bluetooth"],
     "documentation": "https://github.com/ashald/home-assistant-lywsd02",
     "iot_class": "local_polling",
     "requirements": [
@@ -12,5 +12,5 @@
         "bleak-retry-connector>=3.0.0"
     ],
     "config_flow": true,
-    "version": "0.4.0"
+    "version": "0.5.0"
 }

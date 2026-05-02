@@ -3,11 +3,39 @@
     "step": {
       "user": {
         "title": "LYWSD02 Sync",
-        "description": "Enable time synchronisation for LYWSD02 clocks. Once added, use the lywsd02.set_time service to sync a clock."
+        "description": "Select a discovered LYWSD02 clock or choose to enter a MAC address manually.",
+        "data": {
+          "mac": "Device",
+          "temp_mode": "Temperature unit",
+          "timeout": "Connection timeout (seconds)"
+        }
+      },
+      "manual": {
+        "title": "LYWSD02 Sync",
+        "description": "Enter the Bluetooth MAC address of your LYWSD02 clock.",
+        "data": {
+          "mac": "MAC address (XX:XX:XX:XX:XX:XX)",
+          "temp_mode": "Temperature unit",
+          "timeout": "Connection timeout (seconds)"
+        }
       }
     },
+    "error": {
+      "invalid_mac": "Invalid MAC address. Expected format: XX:XX:XX:XX:XX:XX"
+    },
     "abort": {
-      "single_instance_allowed": "[%key:common::config_flow::abort::single_instance_allowed%]"
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "LYWSD02 Options",
+        "data": {
+          "temp_mode": "Temperature unit",
+          "timeout": "Connection timeout (seconds)"
+        }
+      }
     }
   }
 }
