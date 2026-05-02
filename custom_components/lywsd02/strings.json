@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "LYWSD02 Sync",
+        "description": "Enable time synchronisation for LYWSD02 clocks. Once added, use the lywsd02.set_time service to sync a clock."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "[%key:common::config_flow::abort::single_instance_allowed%]"
+    }
+  }
+}

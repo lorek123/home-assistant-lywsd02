@@ -9,6 +9,7 @@ from datetime import datetime, timezone, timedelta
 from bleak import BleakClient
 from bleak_retry_connector import establish_connection
 
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.components import bluetooth
@@ -37,6 +38,10 @@ def get_localized_timestamp() -> tuple[int, int]:
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    return True
+
+
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     async def set_time(call: ServiceCall) -> None:
         mac = call.data["mac"].upper()
         if not mac:
@@ -103,5 +108,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             _LOGGER.exception("Error updating time on '%s'.", mac)
 
     hass.services.async_register(DOMAIN, "set_time", set_time)
+    return True
 
+
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    hass.services.async_remove(DOMAIN, "set_time")
     return True

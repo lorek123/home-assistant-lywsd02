@@ -1,9 +1,6 @@
 # LYWSD02 Sync
 
-Once installed, you need to add following to HomeAssistant's `configuration.yaml` and restart it:
-```yaml
-lywsd02:
-```
+Once installed, add the integration via **Settings → Devices & Services → Add Integration** and search for "LYWSD02 Sync".
 
 ## Setting Time
 
